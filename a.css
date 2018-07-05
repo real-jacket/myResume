@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: aliceblue;
+  background-color: rgb(8, 8, 8);
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+.topNavBar {
+  margin: 0 176.5px;
+  padding: 10px 15px;
+}
+
+.topNavBar .log {
+  display: block;
+  margin-top: 15px;
+  padding: 10px 0;
+  float: left;
+  font-family: "Microsoft YaHei UI";
+  font-weight: bolder;
+}
+
+.topNavBar .log .rs{
+  font-size: 24px;
+  color: #E8676B;
+}
+.topNavBar .log .card{
+  padding-left: 2px;
+  font-size: 18px;
+  color: #9A9DA2;
+}
+.topNavBar nav {
+}
+
+.topNavBar nav ul a {
+  display: block;
+  padding: 12px 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  font-size: 16px;
+  color: #c1c3c6;
+  font-weight: bold;
+}
+.topNavBar nav ul li {
+  margin: 15px 18px 0 18px; 
+  list-style: none;
+  float: right;
+}
+
+.topNavBar nav ul a:hover{
+  border-bottom: 3px solid #E8676B;
+}
