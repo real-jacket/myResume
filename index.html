@@ -40,14 +40,14 @@
       <div class="usercard">
         <div class="pictureAndText clearfix">
           <div class="picture">
-            <img src="pictus/头像.jpg" style="width: 300px;height: px;" alt="头像">
+            <img src="pictus/头像.jpg" alt="头像">
           </div>
           <div class="text">
             <span class="welcom">HELLO
               <span class="triangle"></span>
             </span>
             <h1>柯 特</h1>
-            <p>前 端 开 发 工 程 师</p>
+            <p>前端开发工程师</p>
             <hr>
             <dl class="clearfix">
               <dt>年龄</dt>
@@ -99,38 +99,89 @@
           </a>
         </footer>
       </div>
-
-      <a href="#" class="button">下载 PDF 简历</a>
-
-      <p>
+      <p class="downloadResumewrapper">
+        <a href="./resume.PDF" class="downloadResume" download>下载 PDF 简历</a>
+      </p>
+      <p class="selfInstruction">
         柯特：自我介绍
       </p>
     </main>
-    <section>
+    <section class="skills">
       <h2>技能</h2>
-      <ol>
-        <li>HTML 5 &amp; CSS 3</li>
-        <li>JavaScript</li>
-        <li>jQuery</li>
-        <li>Vue</li>
-        <li>React</li>
-        <li>HTTP</li>
+      <ol class="skillBar clearfix">
+        <li>
+          HTML 5 &amp; CSS 3
+          <div class="out"><div class="inner"></div></div>
+        </li>
+        <li>
+          JavaScript
+        <div class="out">
+          <div class="inner"></div>
+        </div>
+        </li>
+        <li>
+           HTTP
+          <div class="out">
+            <div class="inner"></div>
+          </div>
+        </li>
+        <li>
+           jQuery
+          <div class="out">
+            <div class="inner"></div>
+          </div>
+        </li>
+        <li>
+           Vue
+          <div class="out">
+            <div class="inner"></div>
+          </div>
+        </li>
+        <li>
+           React
+          <div class="out">
+            <div class="inner"></div>
+          </div>
+        </li>
       </ol>
     </section>
-    <section>
+    <section  class="portfolio">
       <h2>作品集</h2>
       <nav>
-        <ol>
-          <li>所有</li>
-          <li>框架</li>
-          <li>原生JS&amp;CSS</li>
+        <ol class="clearfix">
+          <li id="portfolioA">所有</li>
+          <li id="portfolioB">原生JS&amp;CSS</li>
+          <li id="portfolioC">框架</li>
         </ol>
-      </nav>
-
-      <div class="jobs">
-        <div class="big"></div>
-        <div class="small"></div>
-        <div class="small"></div>
+        <div id="portfolio" class="scrollBar state1">
+          <div class="in"></div>
+        </div>
+      </na.potv>
+      <script>
+        var A = document.getElementById('portfolioA');
+        var B = document.getElementById('portfolioB');
+        var C = document.getElementById('portfolioC');
+        var portfolio = document.getElementById('portfolio');
+        A.onclick = function () {
+          portfolio.className = "scrollBar state1";
+        };
+        B.onclick = function () {
+          portfolio.className = "scrollBar state2";
+          };
+        C.onclick = function () {
+          portfolio.className = "scrollBar state3";
+          };
+      </script>
+      <div class="productions clearfix">
+        <div class="production1">
+          <img src="./pictus/作业1.jpg" alt="作品1" width="490">
+        </div>
+        <div class="production2">
+          <img src="./pictus/作业2.jpg" alt="作品1" width="400">
+        </div>
+        <div class="production3">
+          <img src="./pictus/作业3.jpg" alt="作品1" width="400">
+        </div>
       </div>
       
     </section>

@@ -3,6 +3,9 @@
   padding: 0;
 }
 
+body{
+  background-color: #efefef;
+}
 .clearfix::after {
   content: '';
   display: block;
@@ -11,6 +14,10 @@
 
 a {
   text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
 }
 
 .topNavBar {
@@ -53,10 +60,10 @@ a {
   font-size: 16px;
   color: #c1c3c6;
   font-weight: bold;
+  letter-spacing: 1.2px;
 }
 .topNavBar nav ul li {
   margin: 15px 18px 0 18px; 
-  list-style: none;
   float: right;
 }
 
@@ -82,6 +89,7 @@ a {
   margin-right: auto; 
   margin-top: -350px; 
   background-color: #fff;
+  box-shadow: 0px 0px 28px -8px rgba(0, 0, 0, 0.54);
 }
 
 .usercard .picture {
@@ -96,6 +104,7 @@ a {
   margin-left: 64px;
   margin-top: 57px;
   width: 470px;
+  letter-spacing: 1.2px;
 }
 
 .usercard .text .welcom {
@@ -174,4 +183,152 @@ hr {
   height: 25px;
   fill: white;
   vertical-align: top;
+}
+
+body main .downloadResumewrapper {
+  margin: 35px 0;
+  text-align: center;
+}
+
+body main .downloadResume {
+  display: inline-block;
+  border: 1px solid #cbcdcf;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  padding: 21px 56px;
+  transition: box-shadow 1s;
+}
+
+body main .downloadResume:hover {
+  box-shadow: 0px 6px 26px -5px rgba(0, 0, 0, 0.54);
+}
+
+body main .selfInstruction {
+  margin: 5px auto 0;
+  max-width: 930px; 
+  text-align: center;
+  font-family: "楷体";
+  font-size: 18px;
+}
+
+section {
+  max-width: 930px;
+  margin: 80px auto 0;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 10px;
+}
+
+.skills .skillBar {
+  margin: 0 auto;
+  padding:43px 50px 11px;
+  font-size: 13px;
+  color: #3d4451;
+  background-color: #fff;
+  box-shadow: 0px 0px 28px -8px rgba(0, 0, 0, 0.54);
+}
+
+.skills .skillBar .out {
+  background-color: #FAE1E1E1;
+  height: 5px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.skills .skillBar .inner {
+  height: 100%;
+  width: 80%;
+  background-color: #E8676B;
+  border-radius: 2px;
+}
+
+.skills .skillBar li {
+  float: left;
+  width: 48%;
+  margin: 0 0 39px
+}
+.skills .skillBar li:nth-child(even) {
+  float: right;
+  width: 48%;
+}
+
+.portfolio nav {
+  margin: 0 auto;
+}
+
+.portfolio nav ol {
+  padding: 0 320px;
+}
+.portfolio nav li {
+  float: left;
+  margin-right: 65px;
+}
+
+.portfolio nav li:last-child{
+  float: right;
+  margin-right: 0;
+}
+.portfolio nav .scrollBar {
+  background-color: #fff;
+  height: 5px;
+  border-radius: 2px;
+  margin: 14px 320px 20px;
+}
+
+.portfolio nav .scrollBar .in {
+  width: 30px;
+  height: 100%;
+  background-color: #E8676B;
+  border-radius: 2px;
+  transition: All 0.8s;
+}
+
+.portfolio nav .scrollBar.state1 .in {
+  width: 50px;
+  height: 100%;
+  background-color: #E8676B;
+  border-radius: 2px;
+}
+
+.portfolio nav .scrollBar.state2 .in {
+  width: 110px;
+  height: 100%;
+  margin-left: 90px;
+  background-color: #E8676B;
+  border-radius: 2px;
+}
+
+.portfolio nav .scrollBar.state3 .in {
+  width: 50px;
+  height: 100%;
+  margin-left: 240px;
+  background-color: #E8676B;
+  border-radius: 2px;
+}
+
+.portfolio .productions {
+  position: relative;
+  height: 735px;
+  margin-bottom: 100px;
+}
+
+.portfolio .production1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.portfolio .production2 {
+  position: absolute;
+  top: 0;
+  left: 528px;
+}
+.portfolio .production3 {
+  position: absolute;
+  top: 282px;
+  left: 528px;
 }
