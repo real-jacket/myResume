@@ -44,7 +44,7 @@ li {
   float: left;
   font-family: "Microsoft YaHei UI";
   font-weight: bolder;
-  padding: 6px 0;
+  padding: 1px 0;
 }
 
 .topNavBar .log .rs{
@@ -62,21 +62,36 @@ li {
 
 .topNavBar nav ul a {
   display: block;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  font-size: 16px;
+  font-size: 13px;
   padding: 10px 0;
   color: inherit;
   font-weight: bold;
   letter-spacing: 1.2px;
+  position: relative;
 }
 .topNavBar nav ul li {
   margin: 0 18px; 
   float: left;
 }
 
-.topNavBar nav ul a:hover{
-  border-bottom: 3px solid #E8676B;
+.topNavBar nav ul a:hover::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #E8676B;
+  animation: slidebar 0.25s linear;
+}
+@keyframes slidebar{
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
+  }
 }
 
 .banner {
