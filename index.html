@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="topNavBar">
-      <div class="topNavBar-inner clearfix" >
+      <div id="stickyNavbar" class="topNavBar-inner clearfix" >
         <a class="log" href=# alt="log">
           <span class="rs">RS</span><span class="card">card</span>
         </a>
@@ -185,6 +185,15 @@
       </div>
       
     </section>
+    <script>
+      window.onscroll = function(){
+        if(window.scrollY > 0){
+          stickyNavbar.classList.add('slide')
+        }else{
+          stickyNavbar.classList.remove('slide')
+        }
+      }
+    </script>
   </body>
 
 </html>
