@@ -94,6 +94,7 @@ li {
   }
 }
 
+<<<<<<< HEAD
 .topNavBar nav ul li ul {
   position: absolute;
   display: none;
@@ -109,6 +110,26 @@ li {
 .topNavBar nav ul li ul li{
   margin-top: 5px;
   margin-bottom: 5px;
+=======
+.topNavBar nav ul a:hover::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #E8676B;
+  animation: slidebar 0.25s linear;
+}
+@keyframes slidebar{
+  from{
+    width: 0;
+  }
+  to{
+    width: 100%;
+  }
+>>>>>>> d5dfb4b990fb4e645441af850c1d19196b3656f6
 }
 
 .topNavBar nav ul li .active {
