@@ -15,7 +15,7 @@
         justify-content: center;
         align-items: center;
       }
-      .active{
+      .loading.active{
         display: none;
       }
       .dot{
@@ -60,7 +60,7 @@
     <script src="http://at.alicdn.com/t/font_737576_gxgzm23wbo.js"></script>
   </head>
   <body>
-    <div id="loading" class="loading active">
+    <div id="loading" class="loading">
       <div class="dot"></div>
     </div>
     <div class="topNavBar">
@@ -98,7 +98,7 @@
     <div class="banner">
       <div class="mask"></div>
     </div>
-    <main id="siteAbout">
+    <main data-x id="siteAbout">
       <div class="usercard">
         <div class="pictureAndText clearfix">
           <div class="picture">
@@ -168,46 +168,46 @@
         柯特：自我介绍
       </p>
     </main>
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
       <h2>技能</h2>
       <ol class="skillBar clearfix">
         <li>
           HTML 5 &amp; CSS 3
-          <div class="out"><div class="inner"></div></div>
+          <div class="out"><div class="inner" style="width: 80%;"></div></div>
         </li>
         <li>
           JavaScript
         <div class="out">
-          <div class="inner"></div>
+          <div class="inner" style="width: 90%;"></div>
         </div>
         </li>
         <li>
            HTTP
           <div class="out">
-            <div class="inner"></div>
+            <div class="inner" style="width: 60%;"></div>
           </div>
         </li>
         <li>
            jQuery
           <div class="out">
-            <div class="inner"></div>
+            <div class="inner" style="width: 40%;"></div>
           </div>
         </li>
         <li>
            Vue
           <div class="out">
-            <div class="inner"></div>
+            <div class="inner" style="width: 70%;"></div>
           </div>
         </li>
         <li>
            React
           <div class="out">
-            <div class="inner"></div>
+            <div class="inner" style="width: 60%;"></div>
           </div>
         </li>
       </ol>
     </section>
-    <section id="siteWorks" class="portfolio">
+    <section data-x id="siteWorks" class="portfolio">
       <h2>作品集</h2>
       <nav>
         <ol class="clearfix">
@@ -247,30 +247,57 @@
       </div>
       
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
     <script>
-      /*window.setTimeout(function(){
-        loading.classList.remove('active');
-      },2000)*/
+      loading.classList.add('active');
       
+      let specialtags = document.querySelectorAll('[data-x]');
+      for (let i = 0; i < specialtags.length; i++) {
+          specialtags[i].classList.add('offset');
+        }
+
+      slidup();
       window.onscroll = function(){
         if(window.scrollY > 0){
           stickyNavbar.classList.add('slide')
         }else{
           stickyNavbar.classList.remove('slide')
         }
+        
+        slidup();
+      }
+      
+      function slidup() {
+        let specialtags = document.querySelectorAll('[data-x]');
+        let minindex = 0;
+        for (let i = 0; i < specialtags.length; i++) {
+          if (Math.abs(specialtags[i].offsetTop - window.scrollY) < Math.abs(specialtags[minindex].offsetTop - window.scrollY)) {
+            minindex = i;
+          }
+        }
+        specialtags[minindex].classList.remove('offset');
+        let id = specialtags[minindex].id;
+        let a = document.querySelectorAll('a[href="#' + id + '"]')[0];
+        let li = a.parentNode;
+        let children = li.parentNode.children;
+        for (let i = 0; i < children.length; i++) {
+          children[i].classList.remove('highlight');
+        }
+        li.classList.add('highlight');
       }
 
-      let ultags = navbar.getElementsByTagName('ul');
-      for (let i = 0; i < ultags.length; i++) {
-        let parent = ultags[i].parentElement;
-        parent.onmouseenter = function(){
-          ultags[i].classList.add('active');
+  
+      let litags = document.querySelectorAll('#navbar > li');
+      for (let i = 0; i < litags.length; i++) {
+        litags[i].onmouseenter = function(x){
+          x.currentTarget.classList.add('active');
         }
-        parent.onmouseleave = function () {
-          ultags[i].classList.remove('active');
+        litags[i].onmouseleave = function (x) {
+          x.currentTarget.classList.remove('active');
         }
       }
-
+      
+      
       let atags = navbar.querySelectorAll('a')
       for (let i = 0; i < atags.length; i++) {
         atags[i].onclick = function (x) {
@@ -278,11 +305,27 @@
           let sitehref = x.currentTarget.getAttribute('href');
           let siteSection = document.querySelector(sitehref);
           let top = siteSection.offsetTop;
-          window.scrollTo(0,top-60);
+
+          let currentTop = window.scrollY;
+          let targetTop = top - 80;
+
+          function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+          }
+          requestAnimationFrame(animate);
+
+          var coords = { y: currentTop }; 
+          var tween = new TWEEN.Tween(coords) 
+            .to({ y: targetTop }, 500) 
+            .easing(TWEEN.Easing.Quadratic.InOut) 
+            .onUpdate(function () { 
+              window.scrollTo(0,coords.y)
+            })
+            .start(); 
         }
-        
       }
+
     </script>
   </body>
-
 </html>
