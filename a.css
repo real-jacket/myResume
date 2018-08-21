@@ -414,3 +414,9 @@ section h2 {
   top: 282px;
   left: 528px;
 }
+
+.swiper-container {
+  width: 800px;
+  height: 450px;
+  margin-bottom: 500px;
+}

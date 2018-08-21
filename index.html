@@ -56,6 +56,7 @@
         overflow: hidden;
       }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
     <link rel="stylesheet" href="./a.css">
     <script src="https://at.alicdn.com/t/font_737576_gxgzm23wbo.js"></script>
   </head>
@@ -209,123 +210,28 @@
     </section>
     <section data-x id="siteWorks" class="portfolio">
       <h2>作品集</h2>
-      <nav>
-        <ol class="clearfix">
-          <li id="portfolioA">所有</li>
-          <li id="portfolioB">原生JS&amp;CSS</li>
-          <li id="portfolioC">框架</li>
-        </ol>
-        <div id="portfolio" class="scrollBar state1">
-          <div class="in"></div>
+      <!-- 轮播开始 -->
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img class="swiper-slide" src="/项目截图/navigation.png">
+            <img class="swiper-slide" src="/项目截图/canvas.jpg">
+            <img class="swiper-slide" src="/项目截图/swiper.png">
         </div>
-      </nav>
-      <script>
-        var A = document.getElementById('portfolioA');
-        var B = document.getElementById('portfolioB');
-        var C = document.getElementById('portfolioC');
-        var portfolio = document.getElementById('portfolio');
-        A.onclick = function () {
-          portfolio.className = "scrollBar state1";
-        };
-        B.onclick = function () {
-          portfolio.className = "scrollBar state2";
-          };
-        C.onclick = function () {
-          portfolio.className = "scrollBar state3";
-          };
-      </script>
-      <div class="productions clearfix">
-        <div class="production1">
-          <img src="./pictus/作业1.jpg" alt="作品1" width="490">
-        </div>
-        <div class="production2">
-          <img src="./pictus/作业2.jpg" alt="作品1" width="400">
-        </div>
-        <div class="production3">
-          <img src="./pictus/作业3.jpg" alt="作品1" width="400">
-        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-      
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
-    <script>
-      loading.classList.add('active');
-      
-      let specialtags = document.querySelectorAll('[data-x]');
-      for (let i = 0; i < specialtags.length; i++) {
-          specialtags[i].classList.add('offset');
-        }
-
-      slidup();
-      window.onscroll = function(){
-        if(window.scrollY > 0){
-          stickyNavbar.classList.add('slide')
-        }else{
-          stickyNavbar.classList.remove('slide')
-        }
-        
-        slidup();
-      }
-      
-      function slidup() {
-        let specialtags = document.querySelectorAll('[data-x]');
-        let minindex = 0;
-        for (let i = 0; i < specialtags.length; i++) {
-          if (Math.abs(specialtags[i].offsetTop - window.scrollY) < Math.abs(specialtags[minindex].offsetTop - window.scrollY)) {
-            minindex = i;
-          }
-        }
-        specialtags[minindex].classList.remove('offset');
-        let id = specialtags[minindex].id;
-        let a = document.querySelectorAll('a[href="#' + id + '"]')[0];
-        let li = a.parentNode;
-        let children = li.parentNode.children;
-        for (let i = 0; i < children.length; i++) {
-          children[i].classList.remove('highlight');
-        }
-        li.classList.add('highlight');
-      }
-
-  
-      let litags = document.querySelectorAll('#navbar > li');
-      for (let i = 0; i < litags.length; i++) {
-        litags[i].onmouseenter = function(x){
-          x.currentTarget.classList.add('active');
-        }
-        litags[i].onmouseleave = function (x) {
-          x.currentTarget.classList.remove('active');
-        }
-      }
-      
-      
-      let atags = navbar.querySelectorAll('a')
-      for (let i = 0; i < atags.length; i++) {
-        atags[i].onclick = function (x) {
-          x.preventDefault();
-          let sitehref = x.currentTarget.getAttribute('href');
-          let siteSection = document.querySelector(sitehref);
-          let top = siteSection.offsetTop;
-
-          let currentTop = window.scrollY;
-          let targetTop = top - 80;
-
-          function animate(time) {
-            requestAnimationFrame(animate);
-            TWEEN.update(time);
-          }
-          requestAnimationFrame(animate);
-
-          var coords = { y: currentTop }; 
-          var tween = new TWEEN.Tween(coords) 
-            .to({ y: targetTop }, 500) 
-            .easing(TWEEN.Easing.Quadratic.InOut) 
-            .onUpdate(function () { 
-              window.scrollTo(0,coords.y)
-            })
-            .start(); 
-        }
-      }
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+    <script src="main.js"></script>
+    <!-- 模块化 -->
+    <script src="Swiper.js"></script>
   </body>
 </html>
